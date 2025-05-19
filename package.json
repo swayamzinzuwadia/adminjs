@@ -1,0 +1,32 @@
+{
+    "name": "adminjs-user-app",
+    "version": "1.0.0",
+    "description": "Node.js + AdminJS + Sequelize project with user login and admin dashboard",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js"
+    },
+    "keywords": ["adminjs", "sequelize", "express", "mysql", "auth"],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+    "adminjs": "^7.8.15",
+    "@adminjs/express": "^5.1.0",
+    "@adminjs/sequelize": "^4.1.1",
+    "express": "^4.19.2",
+    "sequelize": "^6.37.7",
+    "mysql2": "^3.9.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "express-formidable": "^1.2.0",
+    "cors": "^2.8.5",
+    "express-session": "^1.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+  }
+  
