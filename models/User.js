@@ -1,41 +1,33 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../utils/dbConncetion.js';
-import bcrypt from 'bcryptjs';
+import sequelize from '../utils/dbConnection.js';
 
 const User = sequelize.define('User', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-    validate: {
-      isEmail: true
-    }
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
-}, {
-  hooks: {
-    beforeCreate: async (user) => {
-      if (user.password) {
-        user.password = await bcrypt.hash(user.password, 10);
-      }
-    },
-    beforeUpdate: async (user) => {
-      if (user.changed('password')) {
-        user.password = await bcrypt.hash(user.password, 10);
-      }
-    }
-  }
+    allowNull: false,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
 });
 
-User.prototype.validatePassword = async function(password) {
-  return bcrypt.compare(password, this.password);
-};
-
-export default User; 
+export default User;
